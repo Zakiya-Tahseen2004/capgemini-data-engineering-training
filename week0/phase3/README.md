@@ -1,32 +1,32 @@
 -Problem Statement (Summary)
-Clean sales and customer data (nulls, invalid values, duplicates)
-Validate cleaned data (row counts/checks)
-Join datasets to combine customer and sales info
+Clean sales and customer data (handle nulls, invalid rows)
+Join datasets to combine customer and sales details
 Calculate key metrics (daily sales, total spend, order count)
-Apply aggregations (city-wise revenue, repeat customers)
+Identify repeat and top customers
+Apply aggregations (city-wise revenue, customer-wise spend)
 Build final reporting table for analysis
 
 
 -Approach Description
 Loaded customer and sales data into DataFrames
-Cleaned data (handled nulls, removed duplicates, filtered invalid values)
-Converted data types (cast total_amount to int)
-Joined datasets to combine customer and sales data
-Applied aggregations (daily sales, city-wise revenue, order counts)
-Generated final outputs for reporting and analysis
+Cleaned sales data (handled nulls, converted data types)
+Joined customer and sales datasets
+Filtered valid records for analysis
+Applied aggregations (daily sales, city revenue, order count)
+Generated outputs for reporting and insights
 
 
 -Key Transformations Used
 Aggregation - groupBy() with sum(), count()
 Joins - join() (inner join)
 Filtering - filter()
-Data cleaning - dropna(), fillna(), dropDuplicates()
+Data cleaning - dropna()
 Type conversion - withColumn() + cast()
 
 
 -Key Learnings
-Importance of data cleaning (nulls, duplicates, invalid values)
-Preparing data before joining datasets
-Using aggregations to generate insights
-Building a complete data processing workflow
+Importance of cleaning data before processing
+Preparing datasets before joining
+Using aggregations to derive insights
+Building a simple end-to-end pipeline
 

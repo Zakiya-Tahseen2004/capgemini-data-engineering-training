@@ -44,34 +44,14 @@ sales.groupBy("customer_id").agg(count("*").alias("order_count")) \
 """df = customers.join(sales, "customer_id")
 df = df.withColumn("total_amount", col("total_amount").cast("int"))
 result_df= df.groupBy("city", "customer_id") \
-    .agg(sum("total_amount").alias("total_spend")).show()"""
+    .agg(sum("total_amount").alias("total_spend"))
+result_df.show()"""
 
 
-"""df = customers.join(sales, "customer_id")
+df = customers.join(sales, "customer_id")
 df = df.withColumn("total_amount", col("total_amount").cast("int"))
 
-result_df = df.groupBy("customer_id", "city").agg(sum("total_amount").alias("total_spend"),count("sale_id").alias("order_count")).show()"""
-
-
-data = [
-(1, "Ravi", "Hyderabad", 25),
-(2, None, "Chennai", 32),
-(None, "Arun", "Hyderabad", 28),
-(4, "Meena", None, 30),
-(4, "Meena", None, 30),
-(5, "John", "Bangalore", -5)
-]
-columns = ["customer_id", "name", "city", "age"]
-df = spark.createDataFrame(data, columns)
-
-#clean_df = df.dropna().show()
-clean_df = df.fillna({
-    "customer_id": 0,
-    "name": "Unknown",
-    "city": "Unknown"
-}).dropDuplicates().filter(col("age") > 0)
-clean_df.show()
-
-result_df = clean_df.groupBy("city").agg(count("*").alias("customer_count"))
+result_df = df.groupBy("customer_id", "city").agg(sum("total_amount").alias("total_spend"),count("sale_id").alias("order_count"))
 result_df.show()
+
 

@@ -1,115 +1,32 @@
-Problems on Joins-
-sample table structure and data for these questions:
+Problem Statement (Summary)
 
-Table: employees
-CREATE TABLE employees (
-emp_id INT PRIMARY KEY,
-emp_name VARCHAR(50),
-manager_id INT,
-dept_id INT
-);
-INSERT INTO employees (emp_id, emp_name, manager_id, dept_id) VALUES
-(1, 'Karthik', NULL, 1),
-(2, 'Ajay', 1, 1),
-(3, 'Vijay', 1, 2),
-(4, 'Vinay', 2, 2),
-(5, 'Meena', 3, 3),
-(6, 'Veer', NULL, 4),
-(7, 'Keerthi', 4, 5),
-(8, 'Priya', 4, 5);
+Retrieve employee data along with managers, departments, projects, and salary
+Handle missing relationships (employees without manager/department/project)
+Use joins to combine multiple tables
+Identify specific conditions (no department, no project, no salary)
+Perform aggregations (count employees per department)
+Build queries for real-world scenarios with complete data coverage
 
-Table: departments
-CREATE TABLE departments (
-dept_id INT PRIMARY KEY,
-dept_name VARCHAR(50)
-);
+Approach Description
 
-INSERT INTO departments (dept_id, dept_name) VALUES
-(1, 'HR'),
-(2, 'IT'),
-(3, 'Finance'),
-(4, 'Marketing'),
-(5, 'Sales');
+Loaded all required tables (employees, departments, projects, salary)
+Used self-join for employee–manager relationship
+Applied different joins to combine datasets
+Handled missing data using outer joins
+Applied filters for specific conditions (no project, no department)
+Performed aggregations and generated final outputs
 
-Table: projects
-CREATE TABLE projects (
-project_id INT PRIMARY KEY,
-project_name VARCHAR(50),
-emp_id INT
-);
+Key Transformations Used
 
-INSERT INTO projects (project_id, project_name, emp_id) VALUES
-(1, 'Project A', 1),
-(2, 'Project B', 2),
-(3, 'Project C', 3),
-(4, 'Project D', 4),
-(5, 'Project E', 5);
+Joins - INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN, self join
+Filtering - WHERE, IS NULL, IS NOT NULL
+Aggregation - GROUP BY with COUNT()
+Conditional handling - NULL checks
 
+Key Learnings
 
-1. Retrieve the names of employees and their corresponding managers from the "employees"
-table, ensuring that even employees without managers are included.
-2. Display all employees and their corresponding departments from the "employees" and
-"departments" tables, showing employees even if they don't belong to any department.
-3. List the names of employees who report to a manager, along with their manager's name, from
-the "employees" table.
-4. Find the total salary paid to each employee and their respective department, including
-departments with no employees.
-5. Display a list of employees who do not belong to any department, even if the department data
-is missing.
-6. Fetch the names of employees and the projects they are assigned to. For employees who are not
-assigned any projects, show NULL for the project.
-7. List all employees who have completed at least one project, showing their names and the
-project names.
-8. Show the names of employees and their projects, ensuring that no project is omitted even if an
-employee is not assigned to it.
-9. Find all employees and their corresponding salaries, and display NULL for salary if there is no
-salary record for the employee.
-10. Retrieve the names of employees and their corresponding department names, including
-employees who are not in any department.
-11. Find the names of all departments and employees, ensuring that departments with no
-employees are included.
-12. List all employees with their contact information, including employees without contact records.
-13. Show the names of employees and their department names, including employees not assigned
-to any department and departments without employees.
-14. Find employees who have not completed any project, along with the project details where
-applicable.
-15. Retrieve the names of employees and the names of their projects, including employees who
-are not working on any project.
-16. List all projects and the employees assigned to them, even for projects that have no
-employees.
-17. Show the names of all employees who have both a manager and at least one project, listing
-the manager's name as well.
-18. List the names of employees and the corresponding department names, but exclude those
-employees who don't belong to a department.
-19. Display employees who belong to multiple departments, showing the employee's name and
-the department names.
-20. List the names of all departments and employees, ensuring that even if a department has no
-employees, it is included in the result.
-21. Retrieve employees who have worked on at least one project and do not belong to a
-department, listing their name and project details.
-22. Find the total number of employees who belong to a department, ensuring the departments
-with no employees are still included.
-23. Show the employees and their managers, displaying only those employees who report to a
-manager, excluding employees without managers.
-24. Display all employee names along with their corresponding managers' names, but include
-employees who do not have managers.
-25. Find the names of departments and the number of employees in each department, including
-departments that have no employees.
-26. List all employees and the departments they belong to, ensuring that departments with no
-employees are also listed.
-27. Show a list of employees who do not have any corresponding salary records, along with their
-names.
-28. Retrieve the names of employees and their project assignments, including employees who are
-not assigned to any projects.
-29. List the names of all employees and their respective department and project assignments,
-including employees who are not assigned to a project or department.
-30. Display the names of employees who belong to at least one department, with the department
-name listed, but include employees without a department as well
-
-Key Learnings-
-Understanding different types of joins (INNER, LEFT, RIGHT, FULL)
-Handling missing data (NULL values) in joins
-Working with self-joins (employee–manager relationship)
-Combining multiple tables
-Using conditions to filter specific records 
-Performing aggregations with joins 
+Understanding different join types and when to use them
+Handling missing data using outer joins
+Using self-joins for hierarchical data (manager–employee)
+Combining multiple tables for complete insights
+Writing queries for real-world business scenarios
